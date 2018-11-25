@@ -31,7 +31,7 @@ map.addLayer({{
     layout:         {{}},
     paint: {{
         "fill-color": {colors},
-        "fill-opacity": 0.75
+        "fill-opacity": 0.85
     }}
 }}, 'waterway-label');
 
