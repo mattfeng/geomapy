@@ -1,5 +1,11 @@
+README.md
 setup.py
 geomapy/__init__.py
+geomapy/colors.py
+geomapy/geojson_template.py
+geomapy/layers.py
+geomapy/sources.py
+geomapy/utils.py
 geomapy.egg-info/PKG-INFO
 geomapy.egg-info/SOURCES.txt
 geomapy.egg-info/dependency_links.txt

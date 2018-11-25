@@ -1,6 +1,7 @@
 from .utils import geojson2df
 from .layers import fill_layer, circle_layer
 import numpy as np
+import sys
 
 def add_source(sourceId, file):
     TEMPLATE = """
@@ -15,8 +16,7 @@ map.addSource("{source}", {{
     )
 
 def digest_dataset(file, columns, center=[-71.057083, 42.361145], overlays=[]):
-    """
-    """
+    base = sys.path[0] + "/datavis/"
 
     TEMPLATE = """
 center = {center}
@@ -31,7 +31,7 @@ map.on("load", function() {{
 }})
 """
 
-    dataset = geojson2df("./static/geojson/" + file)
+    dataset = geojson2df(base + "static/geojson/" + file)
     sourceId = file.replace(".geojson", "")
     source = add_source(sourceId, file)
 
@@ -70,17 +70,14 @@ map.on("load", function() {{
 
 
 def digest_overlay(file, index, columns, cmap, center=[-71.057083, 42.361145]):
-    """
-    `columns` is list of columnNames
-    """
+    base = sys.path[0] + "/datavis/"
 
     TEMPLATE = """
 {source}
 
 {layers}
 """
-
-    dataset = geojson2df("./static/geojson/" + file)
+    dataset = geojson2df(base + "static/geojson/" + file)
     sourceId = file.replace(".geojson", "")
     source = add_source(sourceId, file)
 
